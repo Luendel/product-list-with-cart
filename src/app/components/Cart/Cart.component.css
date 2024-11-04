@@ -1,0 +1,35 @@
+section {
+    font-family: "Red Hat Text", sans-serif;
+    width: 85%;
+    background-color: white;
+    margin: 0 auto;
+    border-radius: 0.8rem;
+    margin-top: 1.8rem;
+    padding-top: 1.5rem;
+    margin-bottom: 1.8rem;
+}
+
+section h1 {
+    color: hsl(14, 86%, 42%);
+    width: 80%;
+    margin: 0 auto;
+    font-size: 1.5rem;
+}
+
+section .empty-cart {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2.5rem;
+}
+
+section .empty-cart p {
+    font-size: 1rem;
+    color: hsl(12, 20%, 44%);
+    margin-top: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
