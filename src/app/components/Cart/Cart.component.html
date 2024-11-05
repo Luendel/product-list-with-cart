@@ -1,9 +1,31 @@
 <section>
     <h1>Your Cart ({{total}})</h1>
-    <div *ngIf="isEmpty" class="empty-cart">
-        <img src="/assets/images/illustration-empty-cart.svg" alt="empty cart image">
-        <p class="empty-description">
+    <div *ngIf="total==0" class="empty-cart">
+        <img src="/assets/images/illustration-empty-cart.svg" alt="empty cart">
+        <p>
             Your added items will appear here
         </p>
+    </div>
+    <div *ngIf="total > 0" class="normal-cart">
+        <ul>
+            <li class="title">Classic Tiramisu</li>
+            <li class="info-list">
+                <p class="quantity">1x</p>
+                <p class="price">&#64; 5.50</p>
+                <p class="total-price">$5.50</p>
+            </li>
+            <li class="close-icon">
+                <img src="/assets/images/icon-remove-item.svg" alt="remove item">
+            </li>
+        </ul>
+        <div class="order-total">
+            <p>Order Total</p>
+            <p>$46.50</p>
+        </div>
+        <div class="carbon-neutral">
+            <img src="/assets/images/icon-carbon-neutral.svg" alt="carbon neutral">
+            <p>this is a <span>carbon-neutral</span> delivery</p>
+        </div>
+        <div class="confirm-order">Confirm Order</div>
     </div>
 </section>

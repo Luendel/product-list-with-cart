@@ -12,7 +12,6 @@ export class Cart implements OnInit {
     @Input() total:any
 
     items:any;
-    isEmpty = true;
 
     cartSubscription!: Subscription
 
