@@ -38,6 +38,7 @@ section .normal-cart {
     width: 80%;
     margin: 0 auto;
     margin-top: 0.5rem;
+    padding-bottom: 1.5rem;
 }
 
 section .normal-cart ul {
@@ -50,12 +51,12 @@ section .normal-cart ul {
     border-bottom: 1px solid hsl(13, 31%, 94%);
 }
 
-section ul .title {
+section .normal-cart ul .title {
     color: hsl(14, 65%, 9%);
     font-weight: 600;
 }
 
-section ul .info-list {
+section .normal-cart ul .info-list {
     grid-row: 2;
     grid-column: 1;
     display: flex;
@@ -63,22 +64,22 @@ section ul .info-list {
     margin-top: 0.3rem;
 }
 
-section ul .info-list .quantity {
+section .normal-cart ul .info-list .quantity {
     margin-right: 1rem;
     color: hsl(14, 86%, 42%);
     font-weight: 500;
 }
 
-section ul .info-list .price {
+section .normal-cart ul .info-list .price {
     margin-right: 0.5rem;
     color: hsl(12, 20%, 44%);
 }
 
-section ul .info-list .total-price {
+section .normal-cart ul .info-list .total-price {
     color: hsl(14, 65%, 9%);
 }
 
-section ul .close-icon {
+section .normal-cart ul .close-icon {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -87,12 +88,60 @@ section ul .close-icon {
     align-items: center;
 }
 
-section ul .close-icon:hover {
+section .normal-cart ul .close-icon:hover {
     cursor: pointer;
 }
 
-section ul .close-icon img {
+section .normal-cart ul .close-icon img {
     border: 1px solid hsl(7, 20%, 60%);
     border-radius: 50%;
     padding: 0.15rem;
+}
+
+section .normal-cart .order-total {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+section .normal-cart .order-total .total {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+section .normal-cart .carbon-neutral {
+    background-color: hsl(20, 50%, 98%);
+    border-radius: 0.3rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+section .normal-cart .carbon-neutral img {
+    margin-right: 0.3rem;
+}
+
+section .normal-cart .carbon-neutral span {
+    font-weight: 600;
+}
+
+section .normal-cart .confirm-order {
+    text-align: center;
+    background-color: hsl(14, 86%, 42%);
+    color: white;
+    border-radius: 2rem;
+    font-size: 1rem;
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+    margin-top: 1rem;
+}
+
+section .normal-cart .confirm-order:hover {
+    cursor: pointer;
 }
