@@ -116,4 +116,28 @@ export class Desserts implements OnInit {
             return item.name === name
         } )
     }
+
+    quantityOfProducts(productName:string):number{
+        let i = 0;
+
+        while(this.selected.items[i].name !== productName){
+            i++
+
+            if(i == this.selected.items.length){
+                return 0
+            }
+        }
+
+        return this.selected.items[i].quantity
+    }
+
+
+    ifEnter(event:any){
+        if(event.key == "Enter"){
+            event.target.dispatchEvent(new Event("click"))
+        }
+        else{
+            console.log(event)
+        }
+    }
 }
