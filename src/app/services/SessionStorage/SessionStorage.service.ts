@@ -1,4 +1,5 @@
-import { Injectable } from "@angular/core";
+import { isPlatformBrowser } from "@angular/common";
+import { Injectable, PLATFORM_ID, Inject, OnInit } from "@angular/core";
 
 
 @Injectable({
@@ -6,21 +7,34 @@ import { Injectable } from "@angular/core";
 })
 export class SessionStorage {
 
+    constructor(@Inject(PLATFORM_ID) private platformID:object){}
+
     setItem(key:string, value:any):void {
-        sessionStorage.setItem(key,JSON.stringify(value))
+        if(isPlatformBrowser(this.platformID)){
+            sessionStorage.setItem(key,JSON.stringify(value))
+        } 
     }
 
     getItem<T>(key:string): T | null {
-        const item = sessionStorage.getItem(key)
+        if(isPlatformBrowser(this.platformID)){
+            const item = sessionStorage.getItem(key)
 
-        return item ? JSON.parse(item) : null
+            return item ? JSON.parse(item) : null
+        }
+        return null
     }
 
     removeItem(key:string):void {
-        sessionStorage.removeItem(key)
+        if(isPlatformBrowser(this.platformID)){
+            sessionStorage.removeItem(key)
+        }
+        
     }
 
     clear(){
-        sessionStorage.clear()
+        if(isPlatformBrowser(this.platformID)){
+            sessionStorage.clear()
+        }
+        
     }
 }
