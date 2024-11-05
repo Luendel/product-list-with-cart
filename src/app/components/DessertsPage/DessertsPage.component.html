@@ -4,7 +4,8 @@
     <ul>
         <li *ngFor="let product of products | async">
             <img [src]="product.image.mobile" [alt]="product.name">
-            <div class="button" (click)="addToCart(product)"> <img src="/assets/images/icon-add-to-cart.svg"> Add to cart</div>
+            <div *ngIf="!(isSelected(product.name))" class="button" (click)="addToCart(product)"> <img src="/assets/images/icon-add-to-cart.svg"> Add to cart</div>
+            <div *ngIf="(isSelected(product.name))" class="button selected"><img src="/assets/images/icon-decrement-quantity.svg" alt="decrement" class="decrement" (click)="removeFromCart(product.name)"/>  2 <img src="/assets/images/icon-increment-quantity.svg" alt="increment" class="increment" (click)="addToCart(product)" /></div>
             <p class="category">{{product.category}}</p>
             <p class="name">{{product.name}}</p>
             <p class="price">{{product.price | currency:'USD'}}</p>

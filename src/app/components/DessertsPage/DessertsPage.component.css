@@ -43,6 +43,7 @@ section ul li .button {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
 }
 
 section ul li .button:hover {
@@ -51,6 +52,26 @@ section ul li .button:hover {
 
 section ul li .button img {
     width: 15%;
+}
+
+section ul li .button.selected {
+    background-color: hsl(14, 86%, 42%);
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid hsl(14, 86%, 42%);
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+}
+
+section ul li .button.selected img {
+    width: 1.2rem;
+    height: 1.15rem;
+    padding: 0.2rem;
+    border: 1px solid white;
+    border-radius: 50%;
 }
 
 section ul li .category {

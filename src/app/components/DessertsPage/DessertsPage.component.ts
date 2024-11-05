@@ -110,4 +110,10 @@ export class Desserts implements OnInit {
             this.storageUpdated.emit(this.selected.total)
         }
     }
+
+    isSelected(name:string){
+        return this.selected.items.some(function(item:any):boolean {
+            return item.name === name
+        } )
+    }
 }
