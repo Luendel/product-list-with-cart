@@ -71,4 +71,43 @@ export class Desserts implements OnInit {
 
         this.storageUpdated.emit(this.selected.total)
     }
+
+    removeFromCart(itemName:string){
+        let temp_items = this.selected.items;
+
+        let i = 0;
+
+        while(temp_items[i].name !== itemName){
+            i++
+
+            if(i == temp_items.length){
+                break
+            }
+        }
+
+        if(i < temp_items.length) {
+            let new_temp_items:any[] = []
+
+            for(let k = 0 ; k < temp_items.length ; k++){
+                if(temp_items[k] !== temp_items[i]){
+                    new_temp_items.push(temp_items[k])
+                }
+                else {
+                    if(temp_items[k].quantity > 1){
+                        new_temp_items.push(temp_items[k])
+                        new_temp_items[k].quantity--
+                    }
+                }
+            }
+
+            temp_items = new_temp_items
+
+            this.selected.items = temp_items
+            this.selected.total--
+
+            this.storage.setItem("cart", this.selected)
+
+            this.storageUpdated.emit(this.selected.total)
+        }
+    }
 }

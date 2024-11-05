@@ -1,4 +1,4 @@
 <main>
   <app-desserts (storageUpdated)="updateTotal($event)"></app-desserts>
-  <app-cart [total]="total"></app-cart>
+  <app-cart [total]="total" [items]="items" [total_price]="total_price" (removeItem)="removeItem($event)"></app-cart>
 </main>

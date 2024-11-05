@@ -1,24 +1,22 @@
-import { Component, OnInit,Input } from "@angular/core";
-import { SessionStorage } from "../../services/SessionStorage/SessionStorage.service"; 
-import { Subscription, fromEvent} from "rxjs"
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 
 @Component({
     selector:"app-cart",
     templateUrl:"./Cart.component.html",
     styleUrl:"./Cart.component.css"
 })
-export class Cart implements OnInit {
+export class Cart {
 
-    @Input() total:any
+    @Input() total:any;
 
-    items:any;
+    @Input() items:any;
 
-    cartSubscription!: Subscription
+    @Input() total_price:any;
 
-    constructor(private storage: SessionStorage){}
+    @Output() removeItem:EventEmitter<string> = new EventEmitter() 
 
-    ngOnInit(): void {
-        this.items = this.storage.getItem("cart")
+    removeItemHandler(itemName:string){
+        this.removeItem.emit(itemName)
     }
 
 }

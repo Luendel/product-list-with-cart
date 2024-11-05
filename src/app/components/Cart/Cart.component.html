@@ -7,20 +7,20 @@
         </p>
     </div>
     <div *ngIf="total > 0" class="normal-cart">
-        <ul>
-            <li class="title">Classic Tiramisu</li>
+        <ul *ngFor="let item of items">
+            <li class="title">{{item.name}}</li>
             <li class="info-list">
-                <p class="quantity">1x</p>
-                <p class="price">&#64; 5.50</p>
-                <p class="total-price">$5.50</p>
+                <p class="quantity">{{item.quantity}}x</p>
+                <p class="price">&#64; {{item.price | currency: 'USD'}}</p>
+                <p class="total-price">{{item.price * item.quantity | currency: 'USD'}}</p>
             </li>
-            <li class="close-icon">
+            <li class="close-icon" (click)="removeItemHandler(item.name)">
                 <img src="/assets/images/icon-remove-item.svg" alt="remove item">
             </li>
         </ul>
         <div class="order-total">
             <p>Order Total</p>
-            <p class="total">$46.50</p>
+            <p class="total">{{total_price | currency: 'USD'}}</p>
         </div>
         <div class="carbon-neutral">
             <img src="/assets/images/icon-carbon-neutral.svg" alt="carbon neutral">
