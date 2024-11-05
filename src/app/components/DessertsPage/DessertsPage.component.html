@@ -4,7 +4,7 @@
     <ul>
         <li *ngFor="let product of products | async">
             <img [src]="product.image.mobile" [alt]="product.name">
-            <div class="button"> <img src="/assets/images/icon-add-to-cart.svg"> Add to cart</div>
+            <div class="button" (click)="addToCart(product)"> <img src="/assets/images/icon-add-to-cart.svg"> Add to cart</div>
             <p class="category">{{product.category}}</p>
             <p class="name">{{product.name}}</p>
             <p class="price">{{product.price | currency:'USD'}}</p>
