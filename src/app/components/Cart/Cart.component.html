@@ -1,12 +1,12 @@
 <section>
     <h1>Your Cart ({{total}})</h1>
-    <div *ngIf="total!==0" class="empty-cart">
+    <div *ngIf="total==0" class="empty-cart">
         <img src="/assets/images/illustration-empty-cart.svg" alt="empty cart">
         <p>
             Your added items will appear here
         </p>
     </div>
-    <div *ngIf="total == 0" class="normal-cart">
+    <div *ngIf="total > 0" class="normal-cart">
         <ul>
             <li class="title">Classic Tiramisu</li>
             <li class="info-list">
