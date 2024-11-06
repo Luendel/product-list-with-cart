@@ -137,7 +137,6 @@ section .container .button {
     text-align: center;
 }
 
-
 section .container .button:hover {
     background-color: #952C0C;
     cursor: pointer;
