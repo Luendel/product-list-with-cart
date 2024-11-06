@@ -1,0 +1,143 @@
+section {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+}
+
+section .container {
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+    height: 85%;
+    width: 100%;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    z-index: 1;
+    font-family: "Red Hat Text", sans-serif;
+}
+
+section .container .confirm-img {
+    width: 88%;
+    margin: 2rem auto 1rem auto;
+}
+
+section .container h1 {
+    width: 88%;
+    margin: 0 auto;
+    font-size: 2.5rem;
+}
+
+section .container p {
+    width: 88%;
+    margin: 0.5rem auto 0 auto;
+    color: hsl(12, 20%, 44%);
+}
+
+section .container ul {
+    width: 88%;
+    margin: 2rem auto;
+    list-style: none;
+    background-color: hsl(20, 50%, 98%);
+    border-radius: 0.5rem;
+}
+
+section .container ul li {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    border-bottom: 1px solid hsl(13, 31%, 94%);
+    width: 90%;
+    margin: 0 auto;
+}
+
+section .container ul li div {
+    grid-column: 1;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    border: none;
+}
+
+section .container ul li div img {
+    width: 68%;
+    border-radius: 0.5rem;
+}
+
+section .container ul li .price-list {
+    display: grid;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-template-columns: 20% 80%;
+}
+
+section .container ul li .price-list li {
+    display: block;
+    width: 100%;
+    border: none;
+    margin-top:-0.5rem;
+    margin-bottom: -0.5rem;
+}
+
+section .container ul li .price-list li.title{
+    grid-column: span 2;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: hsl(14, 65%, 9%);
+}
+
+section .container ul li .price-list li.quantity {
+    color:hsl(14, 86%, 42%);
+    font-weight: 500;
+}
+
+section .container ul li .price-list li.price {
+    color: hsl(7, 20%, 60%);
+}
+
+section .container ul li .parcial-price {
+    display: flex;
+    grid-column: 4;
+    justify-content: right;
+    align-items: center;
+    color: hsl(14, 65%, 9%);
+    font-weight: 600;
+}
+
+section .container ul li.total {
+    display: flex;
+    width: 88%;
+    margin: 1rem auto;
+    padding-bottom: 1.6rem;
+}
+
+section .container ul li.total p {
+    color: hsl(14, 65%, 9%);
+    font-size: 1rem;
+    align-self: center;
+}
+
+section .container ul li.total p.total-price {
+    text-align: right;
+    color: hsl(14, 65%, 9%);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+section .container .button {
+    background-color: hsl(14, 86%, 42%);
+    width: 88%;
+    margin: 0 auto;
+    font-size: 1rem;
+    color: white;
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
+    border-radius: 2rem;
+    text-align: center;
+}
+
+
+section .container .button:hover {
+    opacity: 90%;
+    cursor: pointer;
+}

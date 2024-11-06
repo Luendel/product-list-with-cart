@@ -4,11 +4,12 @@ import { DessertsModule } from './components/DessertsPage/DessertsPage.component
 import { CartModule } from './components/Cart/Cart.component.module';
 import { SessionStorage } from './services/SessionStorage/SessionStorage.service';
 import { Desserts } from './components/DessertsPage/DessertsPage.component';
+import { ModalModule } from './components/modal/Modal.component.module';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, DessertsModule, CartModule],
+  imports: [RouterOutlet, DessertsModule, CartModule, ModalModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
