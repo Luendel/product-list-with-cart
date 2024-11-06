@@ -13,10 +13,16 @@ export class Cart {
 
     @Input() total_price:any;
 
-    @Output() removeItem:EventEmitter<string> = new EventEmitter() 
+    @Output() removeItem:EventEmitter<string> = new EventEmitter()
+
+    @Output() displayModal: EventEmitter<any> = new EventEmitter()
 
     removeItemHandler(itemName:string){
         this.removeItem.emit(itemName)
+    }
+
+    handleClick(){
+        this.displayModal.emit()
     }
 
 }

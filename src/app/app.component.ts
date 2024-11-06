@@ -24,6 +24,10 @@ export class AppComponent {
 
   total_price:any = 0
 
+  class:any = "none"
+
+  mainClass:any = null
+
   constructor(private storage:SessionStorage){}
 
   updateTotal(num:number) {
@@ -44,5 +48,16 @@ export class AppComponent {
 
   removeItem(itemName:string){
     this.desserts.removeAllFromCart(itemName)
+  }
+
+  modalToggle(){
+    if(this.class == "none"){
+      this.class = null
+      this.mainClass = "none"
+    }
+    else{
+      this.class = "none"
+      this.mainClass = null
+    }
   }
 }

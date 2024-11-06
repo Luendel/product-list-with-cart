@@ -10,8 +10,7 @@ import { Subscription } from "rxjs";
 export class Modal implements OnInit{
     @Input() totalPrice:any;
     @Input() items:any;
-
-    class = "none"
+    @Input() class:any;
 
     products:any;
 
