@@ -1,7 +1,8 @@
-import { Component, OnInit, EventEmitter, Output } from "@angular/core";
+import { Component, OnInit, EventEmitter, Output, PLATFORM_ID, Inject } from "@angular/core";
 import { GetProducts } from "../../services/GetProducts/GetProducts.service";
-import { Observable } from "rxjs"
+import { Observable, fromEvent, Subscription } from "rxjs"
 import { SessionStorage } from "../../services/SessionStorage/SessionStorage.service";
+import { isPlatformBrowser } from "@angular/common";
 
 @Component({
     selector:"app-desserts",
@@ -9,6 +10,10 @@ import { SessionStorage } from "../../services/SessionStorage/SessionStorage.ser
     styleUrl:"./DessertsPage.component.css"
 })
 export class Desserts implements OnInit {
+
+    image_size:string = "mobile"
+
+    resize_subscription!:Subscription;
 
     selected = {
         total:0,
@@ -19,11 +24,45 @@ export class Desserts implements OnInit {
 
     products!:Observable<any[]>;
 
-    constructor(private get_products: GetProducts, private storage:SessionStorage){}
+    constructor(private get_products: GetProducts, private storage:SessionStorage, @Inject(PLATFORM_ID) private platformId:object){}
 
     ngOnInit(): void {
         this.storage.setItem("cart", this.selected)
         this.products = this.get_products.getProducts()
+
+        if(isPlatformBrowser(this.platformId)){
+           this.resize_subscription = fromEvent(window, "resize").subscribe(() => {
+            this.handleImageSize(window.innerWidth)
+        })
+        
+        }
+
+        
+
+    }
+
+    handleImageSize(size:number){
+        if(size <= 600){
+            this.image_size = "mobile"
+        } else if(size > 600 && size <= 1000){
+            this.image_size = "tablet"
+        } else {
+            this.image_size = "desktop"
+        }
+    }
+
+    returnProperImage(item:any){
+        if(this.image_size == "mobile"){
+            return item.mobile
+        }
+
+        if(this.image_size == "tablet"){
+            return item.tablet
+        }
+
+        if(this.image_size == "desktop"){
+            return item.desktop
+        }
     }
 
     addToCart(item:any){
