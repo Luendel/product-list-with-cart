@@ -50,6 +50,11 @@ export class AppComponent {
     this.desserts.removeAllFromCart(itemName)
   }
 
+  clearCart(){
+    this.desserts.clearCart()
+    this.modalToggle()
+  }
+
   modalToggle(){
     if(this.class == "none"){
       this.class = null

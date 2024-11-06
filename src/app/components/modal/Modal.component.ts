@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input, Output, OnInit, EventEmitter } from "@angular/core";
 import { GetProducts } from "../../services/GetProducts/GetProducts.service";
 import { Subscription } from "rxjs";
 
@@ -11,6 +11,7 @@ export class Modal implements OnInit{
     @Input() totalPrice:any;
     @Input() items:any;
     @Input() class:any;
+    @Output() clearCart:EventEmitter<any> = new EventEmitter()
 
     products:any;
 
@@ -29,7 +30,7 @@ export class Modal implements OnInit{
     }
 
     handleClick(){
-        console.log(this.products)
+        this.clearCart.emit()
     }
 
     handleSrc(name:string){
