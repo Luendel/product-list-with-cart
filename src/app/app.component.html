@@ -1,5 +1,5 @@
 <main>
-  <app-modal></app-modal>
+  <app-modal [totalPrice]="total_price" [items]="items"></app-modal>
   <app-desserts (storageUpdated)="updateTotal($event)"></app-desserts>
   <app-cart [total]="total" [items]="items" [total_price]="total_price" (removeItem)="removeItem($event)"></app-cart>
 </main>

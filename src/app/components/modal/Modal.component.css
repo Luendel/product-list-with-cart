@@ -4,6 +4,7 @@ section {
     width: 100vw;
     height: 100vh;
     top: 0;
+    display: block;
 }
 
 section .container {
@@ -140,4 +141,8 @@ section .container .button {
 section .container .button:hover {
     opacity: 90%;
     cursor: pointer;
+}
+
+section.none {
+    display: none;
 }
