@@ -139,7 +139,7 @@ section .container .button {
 
 
 section .container .button:hover {
-    opacity: 90%;
+    background-color: #952C0C;
     cursor: pointer;
 }
 
