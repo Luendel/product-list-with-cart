@@ -2,7 +2,7 @@
     <h1>Desserts</h1>
 
     <ul>
-        <li *ngFor="let product of products | async">
+        <li *ngFor="let product of products | async" [class]="isSelected(product.name)? 'selected' : 'not-selected'">
             <img [src]="product.image.mobile" [alt]="product.name">
             <div *ngIf="!(isSelected(product.name))" class="button" (click)="addToCart(product)" (keydown)="ifEnter($event)" tabindex="0"> <img src="/assets/images/icon-add-to-cart.svg"> Add to cart</div>
             <div *ngIf="(isSelected(product.name))" class="button selected"><img src="/assets/images/icon-decrement-quantity.svg" alt="decrement" class="decrement" (click)="removeFromCart(product.name)" (keydown)="ifEnter($event)" tabindex="0"/> {{quantityOfProducts(product.name)}} <img src="/assets/images/icon-increment-quantity.svg" alt="increment" class="increment" (click)="addToCart(product)" (keydown)="ifEnter($event)" tabindex="0"/></div>

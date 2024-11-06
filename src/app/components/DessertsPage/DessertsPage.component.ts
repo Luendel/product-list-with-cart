@@ -111,6 +111,42 @@ export class Desserts implements OnInit {
         }
     }
 
+    removeAllFromCart(itemName:string){
+        let temp_items = this.selected.items;
+
+        let i = 0;
+
+        while(temp_items[i].name !== itemName){
+            i++
+
+            if(i == temp_items.length){
+                break
+            }
+        }
+
+        if(i < temp_items.length) {
+            let new_temp_items:any[] = []
+            let temp_quantity;
+
+            for(let k = 0 ; k < temp_items.length ; k++){
+                if(temp_items[k] !== temp_items[i]){
+                    new_temp_items.push(temp_items[k])
+                }
+                else {
+                    temp_quantity = temp_items[k].quantity
+                }
+            }
+
+            temp_items = new_temp_items
+            this.selected.items = temp_items
+            this.selected.total -= temp_quantity
+
+            this.storage.setItem("cart",this.selected)
+            this.storageUpdated.emit(this.selected.total)
+        }
+
+    }
+
     isSelected(name:string){
         return this.selected.items.some(function(item:any):boolean {
             return item.name === name

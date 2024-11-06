@@ -42,6 +42,6 @@ export class AppComponent {
   }
 
   removeItem(itemName:string){
-    this.desserts.removeFromCart(itemName)
+    this.desserts.removeAllFromCart(itemName)
   }
 }
