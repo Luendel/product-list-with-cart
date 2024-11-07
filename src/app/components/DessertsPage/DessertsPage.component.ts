@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Input, Output, PLATFORM_ID, Inject } from "@angular/core";
+import { Component, OnInit, OnDestroy, EventEmitter, Input, Output, PLATFORM_ID, Inject } from "@angular/core";
 import { GetProducts } from "../../services/GetProducts/GetProducts.service";
 import { Observable, fromEvent, Subscription } from "rxjs"
 import { SessionStorage } from "../../services/SessionStorage/SessionStorage.service";
@@ -9,7 +9,7 @@ import { isPlatformBrowser } from "@angular/common";
     templateUrl:"./DessertsPage.component.html",
     styleUrl:"./DessertsPage.component.css"
 })
-export class Desserts implements OnInit {
+export class Desserts implements OnInit, OnDestroy {
 
     @Input() tab:any;
 
@@ -44,8 +44,11 @@ export class Desserts implements OnInit {
 
         }
 
-        
+    }
 
+    ngOnDestroy(): void {
+        this.resize_subscription.unsubscribe()
+        this.load_subscription.unsubscribe()
     }
 
     handleImageSize(size:number){

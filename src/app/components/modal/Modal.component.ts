@@ -1,4 +1,4 @@
-import { Component, Input, Output, OnInit, EventEmitter } from "@angular/core";
+import { Component, Input, Output, OnInit, OnDestroy, EventEmitter } from "@angular/core";
 import { GetProducts } from "../../services/GetProducts/GetProducts.service";
 import { Subscription } from "rxjs";
 
@@ -7,7 +7,7 @@ import { Subscription } from "rxjs";
     templateUrl:"./Modal.component.html",
     styleUrl:"./Modal.component.css"
 })
-export class Modal implements OnInit{
+export class Modal implements OnInit, OnDestroy{
     @Input() tab:any;
 
     @Input() totalPrice:any;
@@ -32,6 +32,10 @@ export class Modal implements OnInit{
         })
 
         this.products = temp
+    }
+
+    ngOnDestroy(): void {
+        this.subscription.unsubscribe()
     }
 
     handleClick(){
