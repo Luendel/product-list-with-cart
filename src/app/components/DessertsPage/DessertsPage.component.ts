@@ -47,8 +47,14 @@ export class Desserts implements OnInit, OnDestroy {
     }
 
     ngOnDestroy(): void {
-        this.resize_subscription.unsubscribe()
-        this.load_subscription.unsubscribe()
+        if(this.resize_subscription){
+            this.resize_subscription.unsubscribe()
+        }
+        
+        if(this.load_subscription){
+            this.load_subscription.unsubscribe()
+        }
+        
     }
 
     handleImageSize(size:number){
