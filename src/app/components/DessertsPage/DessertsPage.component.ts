@@ -81,7 +81,6 @@ export class Desserts implements OnInit {
             })
             this.selected.total++;
             this.storage.setItem("cart",this.selected)
-            console.log(this.storage.getItem("cart"))
         }
         else{
             let i = 0
@@ -223,7 +222,7 @@ export class Desserts implements OnInit {
             event.target.dispatchEvent(new Event("click"))
         }
         else{
-            console.log(event)
+            
         }
     }
 }
