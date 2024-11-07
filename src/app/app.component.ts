@@ -28,6 +28,8 @@ export class AppComponent {
 
   mainClass:any = null
 
+  tab = 0
+
   constructor(private storage:SessionStorage){}
 
   updateTotal(num:number) {
@@ -59,10 +61,12 @@ export class AppComponent {
     if(this.class == "none"){
       this.class = null
       this.mainClass = "none"
+      this.tab = -1
     }
     else{
       this.class = "none"
       this.mainClass = null
+      this.tab = 0
     }
   }
 }

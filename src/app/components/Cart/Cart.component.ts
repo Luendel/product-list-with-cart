@@ -6,6 +6,7 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
     styleUrl:"./Cart.component.css"
 })
 export class Cart {
+    @Input() tab:any;
 
     @Input() total:any;
 
@@ -23,6 +24,15 @@ export class Cart {
 
     handleClick(){
         this.displayModal.emit()
+    }
+
+    ifEnter(event:any){
+        if(event.key == "Enter"){
+            event.target.dispatchEvent(new Event("click"))
+        }
+        else{
+            
+        }
     }
 
 }

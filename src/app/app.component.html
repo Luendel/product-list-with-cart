@@ -1,5 +1,5 @@
 <main [class]="mainClass">
-  <app-modal [totalPrice]="total_price" [items]="items" [class]="class" (clearCart)="clearCart()"></app-modal>
-  <app-desserts (storageUpdated)="updateTotal($event)"></app-desserts>
-  <app-cart [total]="total" [items]="items" [total_price]="total_price" (removeItem)="removeItem($event)" (displayModal)="modalToggle()"></app-cart>
+  <app-modal [totalPrice]="total_price" [items]="items" [class]="class" (clearCart)="clearCart()" [tab]="tab"></app-modal>
+  <app-desserts (storageUpdated)="updateTotal($event)" [tab]="tab"></app-desserts>
+  <app-cart [total]="total" [items]="items" [total_price]="total_price" (removeItem)="removeItem($event)" (displayModal)="modalToggle()" [tab]="tab"></app-cart>
 </main>

@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output, PLATFORM_ID, Inject } from "@angular/core";
+import { Component, OnInit, EventEmitter, Input, Output, PLATFORM_ID, Inject } from "@angular/core";
 import { GetProducts } from "../../services/GetProducts/GetProducts.service";
 import { Observable, fromEvent, Subscription } from "rxjs"
 import { SessionStorage } from "../../services/SessionStorage/SessionStorage.service";
@@ -10,6 +10,8 @@ import { isPlatformBrowser } from "@angular/common";
     styleUrl:"./DessertsPage.component.css"
 })
 export class Desserts implements OnInit {
+
+    @Input() tab:any;
 
     image_size!:string
 

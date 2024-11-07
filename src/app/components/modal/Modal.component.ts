@@ -8,9 +8,14 @@ import { Subscription } from "rxjs";
     styleUrl:"./Modal.component.css"
 })
 export class Modal implements OnInit{
+    @Input() tab:any;
+
     @Input() totalPrice:any;
+    
     @Input() items:any;
+    
     @Input() class:any;
+    
     @Output() clearCart:EventEmitter<any> = new EventEmitter()
 
     products:any;
@@ -46,6 +51,23 @@ export class Modal implements OnInit{
         }
 
         return temp[i].image.thumbnail
+    }
+
+    ifEnter(event:any){
+        if(event.key == "Enter"){
+            event.target.dispatchEvent(new Event("click"))
+        }
+        else{
+            
+        }
+    }
+
+    handleTab(){
+        if(this.tab == -1){
+            return 0
+        }
+        
+        return (-1)
     }
 
 }
