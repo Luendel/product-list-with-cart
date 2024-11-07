@@ -2,7 +2,7 @@ section {
     position: absolute;
     background-color: rgba(0, 0, 0, 0.5);
     width: 100vw;
-    height: 100vh;
+    min-height: 100%;
     top: 0;
     display: block;
 }
@@ -146,6 +146,25 @@ section.none {
     display: none;
 }
 
+@media (min-width:600px) {
+    section {
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    section .container {
+        z-index: 2;
+        position: relative;
+        height: fit-content;
+        max-width: 590px;
+        padding-bottom: 2rem;
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+    }
+}
+
 @media (min-width:1000px) {
     section {
         z-index: 1;
@@ -158,7 +177,7 @@ section.none {
         z-index: 2;
         position: relative;
         height: fit-content;
-        max-width: 500px;
+        max-width: 590px;
         padding-bottom: 2rem;
         border-bottom-left-radius: 1rem;
         border-bottom-right-radius: 1rem;

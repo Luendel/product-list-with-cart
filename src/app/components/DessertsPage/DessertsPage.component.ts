@@ -11,9 +11,10 @@ import { isPlatformBrowser } from "@angular/common";
 })
 export class Desserts implements OnInit {
 
-    image_size:string = "mobile"
+    image_size!:string
 
     resize_subscription!:Subscription;
+    load_subscription!: Subscription;
 
     selected = {
         total:0,
@@ -34,7 +35,11 @@ export class Desserts implements OnInit {
            this.resize_subscription = fromEvent(window, "resize").subscribe(() => {
             this.handleImageSize(window.innerWidth)
         })
-        
+
+            this.load_subscription = fromEvent(window,"load").subscribe(()=> {
+                this.handleImageSize(window.innerWidth)
+            })
+
         }
 
         
@@ -93,7 +98,6 @@ export class Desserts implements OnInit {
                 this.selected.items[i].quantity++
                 this.selected.total++
                 this.storage.setItem("cart",this.selected)
-                console.log(this.storage.getItem("cart"))
             }
 
             else {
@@ -104,7 +108,6 @@ export class Desserts implements OnInit {
                 })
                 this.selected.total++
                 this.storage.setItem("cart",this.selected)
-                console.log(this.storage.getItem("cart"))
             }
         }
 
